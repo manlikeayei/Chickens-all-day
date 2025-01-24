@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cmp325.Chickens.all.day.models.Product;
+import com.cmp325.Chickens.all.day.models.ProductDto;
 import com.cmp325.Chickens.all.day.services.ProductsRepository;
 
 @Controller
-@RequestMapping("/products")
+@RequestMapping("static/pages")
 public class ProductsController {
 
 
@@ -24,6 +25,15 @@ public class ProductsController {
         List<Product> products = repo.findAll();
         model.addAttribute("products", products);
         return "static/pages/Products";
+    }
+
+
+
+    @GetMapping("/create")
+    public String ShowCreatePage (Model model){
+        ProductDto productDto = new ProductDto();
+        model.addAttribute("productDto", productDto);
+        return "static/pages/CreateProduct";
     }
 
 }
