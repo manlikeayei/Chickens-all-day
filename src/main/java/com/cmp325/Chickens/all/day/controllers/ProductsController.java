@@ -23,7 +23,7 @@ public class ProductsController {
     public String showProductList(Model model){
         List<Product> products = repo.findAll();
         model.addAttribute("products", products);
-        return "pages/Products";
+        return "static/pages/Products";
     }
 
 }
